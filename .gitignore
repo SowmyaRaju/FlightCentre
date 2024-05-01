@@ -5,3 +5,9 @@
 /FlightFinder.API/.vs
 /FlightFinder.API/FlightFinder.API/obj
 /FlightFinder.API/FlightFinder.API/bin/Debug/net8.0
+/FlightFinder.Web/bin/Debug/net8.0
+/FlightFinder.Web/obj/Debug/net8.0/ref
+/FlightFinder.Web/obj/Debug/net8.0/refint/FlightFinder.Web.dll
+/FlightFinder.Web/obj/Debug/net8.0/scopedcss
+/FlightFinder.Web/obj/Debug/net8.0/staticwebassets
+/FlightFinder.Web/obj/Debug/net8.0/apphost.exe
