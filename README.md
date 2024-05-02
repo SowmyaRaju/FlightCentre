@@ -18,6 +18,23 @@ Installation:
 
 
 Usage:
-*To Run the API and the Web project together:
+* To Run the API and the Web project together
 * Startup project - Set the "Start multiple prjects" option by right clicking the solution .
 * Run the project (press F5 or click the Start button in Visual Studio).
+
+
+
+Project Structure:
+This solution contains 2 projects:
+
+* FlightFinder.API --> Rest API
+* FlightFinder.Web  --> UI
+
+
+How would I improve this App ?
+
+* By configuring the API urls in app settings and injecting them through configuration
+* Using UI components like like Telerik UI instead of using Javascript or I would implement SPA (single PAge Application) using angular depending on the functional requirements
+* Provide security by authentication and authorization (Azure AD as Identity provider).
+* Design the app with clean architecture which offers easy maintenance, separation of concern, testing, extensibility and scalability of the application.
+* Implement logging to monitor the application behavior and error (logger, AppInsights).
