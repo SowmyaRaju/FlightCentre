@@ -5,6 +5,20 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Flight Finder</title>
+        <script src="~/js/script.js"></script>
+    </head>
+    <body>
+        <h1>Flight Finder</h1>
+        <div class="form-container">
+            <label for="inputString">Enter a string:</label>
+            <input type="text" id="inputString" />
+            <button onclick="countFlights()">Count Flights</button>
+            <p id="flightCount" class="result"></p>
+        </div>
+
+    </body>
 </div>

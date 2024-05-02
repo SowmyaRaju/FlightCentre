@@ -1,11 +1,13 @@
-﻿using FlightFinder.API.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using FlightFinder.API.Models;
 using FlightFinder.API.Services;
-using Microsoft.AspNetCore.Mvc;
-
-
+using System;
+using System.Net;
 
 namespace FlightFinder.API.Controllers
 {
+    [ApiController]
+    [Route("api/flights")]
     public class FlightsController : Controller
     {
         private readonly IFlightCentreService _flightCentreService;
@@ -16,16 +18,24 @@ namespace FlightFinder.API.Controllers
         }
 
         [HttpPost]
-        [Route("api/flight/count")]
-        public IHttpActionResult CountFlights([FromBody] FlightRequest request)
+        [Route("count")]
+        public ActionResult CountFlights([FromBody] FlightRequest request)
         {
-            if (request == null || string.IsNullOrEmpty(request.Input))
+            try
             {
-                return (IHttpActionResult)BadRequest("Input string is required.");
+                if (request == null || string.IsNullOrEmpty(request.Input))
+                {
+                    return BadRequest("Input string is required.");
+                }
+
+                int flightCount = _flightCentreService.CountFlights(request.Input);
+                return Ok(new { Count = flightCount });
             }
-                
-            int flightCount = _flightCentreService.CountFlights(request.Input);
-            return (IHttpActionResult)Ok(new { Count = flightCount });
+            catch (Exception ex)
+            {
+                string errorMessage = $"An error occurred while processing the request. Exception: {ex}";
+                return BadRequest(errorMessage);
+            }
         }
     }
 }

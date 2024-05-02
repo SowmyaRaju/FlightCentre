@@ -11,7 +11,7 @@ builder.Services.RegisterServices();
 var app = builder.Build();
 
 app.ConfigureSwagger();
-
+app.UseCors("AllowSpecificOrigin");
 app.UseAuthorization();
 
 app.MapControllers();
