@@ -13,7 +13,12 @@ function countFlights() {
         return;
     }
 
-    fetch('http://localhost:5086/api/flights/count', {
+    const apiHostname = 'localhost';
+    const apiPort = '5086'; //Default port name
+
+    const apiUrl = `http://${apiHostname}:${apiPort}/api/flights/count`;
+
+    fetch(apiUrl, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -23,6 +28,7 @@ function countFlights() {
         .then(response => response.json())
         .then(data => {
             document.getElementById('flightCount').innerText = `Number of instances of 'flight' : ${data.count}`;
+            document.getElementById('errorMessage').textContent = '';
         })
         .catch(error => console.error('Error:', error));
 }
